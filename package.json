@@ -8,6 +8,7 @@
   "dependencies": {
     "@sap/cds": "^9",
     "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
     "express": "^4.21.1"
   },
   "devDependencies": {
@@ -22,6 +23,16 @@
   "cds": {
     "server": {
       "index": true
+    },
+    "folders": {
+      "app": "app/dist"
+    },
+    "requires": {
+      "[production]": {
+        "auth": {
+          "kind": "dummy-auth"
+        }
+      }
     }
   }
 }

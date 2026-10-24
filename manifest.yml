@@ -1,0 +1,17 @@
+---
+applications:
+  - name: sap-compliance-auditor
+    path: gen/srv
+    memory: 512M
+    disk_quota: 1024M
+    buildpack: nodejs_buildpack
+    random-route: true
+    env:
+      CDS_REQUIRES_AUTH_KIND: dummy-auth
+      SAP_BASE_URL: https://m9.test03.apimanagement.us10.hana.ondemand.com/API_BUSINESS_PARTNER
+      SAP_CLIENT: "100"
+      SAP_USERNAME: M9DEV
+      SAP_PASSWORD: "Test!234"
+      SAP_HOST_IP: 54.80.206.9
+      OLLAMA_URL: http://54.80.206.9:11434
+      OLLAMA_MODEL: llama3.2

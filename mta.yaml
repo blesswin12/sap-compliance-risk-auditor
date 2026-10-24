@@ -1,0 +1,45 @@
+_schema-version: '3.3.0'
+ID: sap-compliance-risk-auditor
+version: 1.0.0
+description: "Autonomous SAP Business Partner Compliance & Risk Auditor on SAP CAP & BTP CF"
+parameters:
+  enable-parallel-deployments: true
+
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm install
+        - npm run build
+        - npx cds build --production
+        - mkdir -p gen/srv/app/dist
+        - cp -R app/dist gen/srv/app/
+
+modules:
+  - name: sap-compliance-risk-auditor-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      instances: 1
+      memory: 512M
+      disk-quota: 1024M
+      buildpack: nodejs_buildpack
+      random-route: true
+    build-parameters:
+      builder: npm-ci
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+    properties:
+      CDS_REQUIRES_AUTH_KIND: dummy-auth
+      SAP_BASE_URL: https://m9.test03.apimanagement.us10.hana.ondemand.com/API_BUSINESS_PARTNER
+      SAP_CLIENT: 100
+      SAP_USERNAME: M9DEV
+      SAP_PASSWORD: Test!234
+      SAP_HOST_IP: 54.80.206.9
+      OLLAMA_URL: http://54.80.206.9:11434
+      OLLAMA_MODEL: llama3.2
+
+resources:
+  []

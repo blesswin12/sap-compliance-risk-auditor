@@ -10,6 +10,11 @@ app/node_modules/
 dist/
 app/dist/
 build/
+gen/
+mta_archives/
+META-INF/
+*.mtar
+Makefile*
 
 # Logs
 npm-debug.log*
