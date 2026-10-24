@@ -25,3 +25,158 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #374151;
 }
+
+/* ========================================================================= */
+/* PROFESSIONAL EXECUTIVE PRINT STYLESHEET                                  */
+/* Clean white background, high-contrast dark typography, no cutoff scroll   */
+/* ========================================================================= */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm 8mm 10mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Reset all dark backgrounds and force root page to auto height without empty trailing canvas */
+  html, body, #root, .min-h-screen {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #0f172a !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Force all printed text, headings, and monospace blocks to high-contrast dark color */
+  body, p, span, div, h1, h2, h3, h4, h5, h6, table, th, td, pre, code {
+    color: #0f172a !important;
+    text-shadow: none !important;
+  }
+
+  /* Reset all dark cards, gradients, and panels to clean executive print styling */
+  .bg-\[\#0B0F19\],
+  .bg-\[\#070B12\],
+  .bg-\[\#080C14\],
+  [class*="bg-slate-950"],
+  [class*="bg-slate-900"],
+  [class*="bg-indigo-950"],
+  [class*="bg-rose-950"],
+  [class*="bg-amber-950"],
+  [class*="bg-emerald-950"],
+  .bg-gradient-to-br,
+  .bg-gradient-to-tr {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: none !important;
+  }
+
+  .bg-slate-950\/60,
+  .bg-slate-950\/70,
+  .bg-slate-950\/80,
+  .bg-slate-900\/60,
+  .bg-slate-900\/70,
+  .bg-slate-900\/80 {
+    background: #f8fafc !important;
+    border-color: #cbd5e1 !important;
+  }
+
+  /* Progress bar tracks */
+  [class*="bg-slate-800"] {
+    background: #e2e8f0 !important;
+  }
+
+  /* Global hide for interactive controls, headers, buttons, toasts */
+  header,
+  .no-print,
+  button,
+  .print-hide {
+    display: none !important;
+  }
+
+  /* Continuous content flow without artificial gaps */
+  .print-flow-content {
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+    page-break-before: auto !important;
+    break-before: auto !important;
+  }
+
+  /* Avoid awkward page break splits inside scorecards */
+  .print-avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* ========================================================================= */
+  /* REPEATING HEADER & FOOTER TABLE ENGINE FOR MULTI-PAGE PRINT               */
+  /* W3C CSS Paged Media standard: thead repeats on EVERY printed page          */
+  /* tfoot reserves space so body content never overlaps fixed bottom footer   */
+  /* ========================================================================= */
+  .print-table-container {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: table !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  .print-table-header {
+    display: table-header-group !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .print-table-footer {
+    display: table-footer-group !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .print-table-body {
+    display: table-row-group !important;
+  }
+
+  .print-table-body > tr,
+  .print-body-row {
+    display: table-row !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  .print-table-body > tr > td,
+  .print-body-cell {
+    display: table-cell !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+    border: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .print-header-cell {
+    padding-bottom: 10px !important;
+    padding-top: 0 !important;
+    border: none !important;
+    background: #ffffff !important;
+  }
+
+  .print-footer-cell {
+    padding-top: 8px !important;
+    padding-bottom: 0 !important;
+    border: none !important;
+    background: #ffffff !important;
+  }
+}

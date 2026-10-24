@@ -17,34 +17,53 @@ type RiskCategory : String enum {
     BANKING;
     CREDIT_RATING;
     POSTING_BLOCK;
+    DATA_GOVERNANCE;
     CLEAN;
 }
 
 type RiskAlert {
-    category : RiskCategory;
-    severity : RiskLevel;
-    message  : String;
-    details  : String;
+    category    : RiskCategory;
+    severity    : RiskLevel;
+    message     : String;
+    details     : String;
+    standard    : String;
+    sourceTable : String;
 }
 
 type AuditReport {
-    bpId                : String;
-    fullName            : String;
-    country             : String;
-    cityName            : String;
-    riskScore           : Integer;
-    riskLevel           : RiskLevel;
-    alerts              : array of RiskAlert;
-    isBankrupt          : Boolean;
-    hasLegalProceedings : Boolean;
-    isPostingBlocked    : Boolean;
-    taxMissing          : Boolean;
-    bankCount           : Integer;
-    ratingGrade         : String;
-    ratingTrend         : String;
-    aiExecutiveSummary  : LargeString;
-    aiRecommendations   : array of String;
-    auditedAt           : DateTime;
+    bpId                 : String;
+    fullName             : String;
+    country              : String;
+    cityName             : String;
+    streetAddress        : String;
+    postalCode           : String;
+    legalForm            : String;
+    createdByUser        : String;
+    creationDate         : String;
+    lastChangedByUser    : String;
+    lastChangeDate       : String;
+    grouping             : String;
+    hasAddress           : Boolean;
+    auditReferenceId     : String;
+    fiscalScore          : Integer;
+    solvencyScore        : Integer;
+    legalScore           : Integer;
+    operationalScore     : Integer;
+    taxNumber            : String;
+    identificationNumber : String;
+    riskScore            : Integer;
+    riskLevel            : RiskLevel;
+    alerts               : array of RiskAlert;
+    isBankrupt           : Boolean;
+    hasLegalProceedings  : Boolean;
+    isPostingBlocked     : Boolean;
+    taxMissing           : Boolean;
+    bankCount            : Integer;
+    ratingGrade          : String;
+    ratingTrend          : String;
+    aiExecutiveSummary   : LargeString;
+    aiRecommendations    : array of String;
+    auditedAt            : DateTime;
 }
 
 type PortfolioStats {

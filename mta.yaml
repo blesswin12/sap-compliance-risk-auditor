@@ -10,10 +10,7 @@ build-parameters:
     - builder: custom
       commands:
         - npm install
-        - npm run build
-        - npx cds build --production
-        - mkdir -p gen/srv/app/dist
-        - cp -R app/dist gen/srv/app/
+        - npm run build:all
 
 modules:
   - name: sap-compliance-risk-auditor-srv
