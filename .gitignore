@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+app/node_modules/
+
+# Environment variables & secrets
+.env
+.env*.local
+
+# Production build outputs
+dist/
+app/dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+sapserver.md

@@ -1,0 +1,27 @@
+{
+  "name": "sap-compliance-risk-auditor",
+  "version": "1.0.0",
+  "description": "Autonomous SAP Business Partner Compliance & Risk Auditor on SAP CAP & BTP CF",
+  "repository": "<none>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^9",
+    "axios": "^1.7.7",
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "@sap/cds-dk": "^9"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "build:frontend": "cd app && npm install && npm run build",
+    "build": "npm run build:frontend",
+    "watch": "cds watch"
+  },
+  "cds": {
+    "server": {
+      "index": true
+    }
+  }
+}
